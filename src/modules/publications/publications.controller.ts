@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { PublicationsService } from './publications.service';
-import { CreatePublicationDto } from '../dtos/create-publication.dto';
+import { CreatePublicationDto } from './dto/create-publication.dto';
 import { UpdatePublicationDto } from './dto/update-publication.dto';
 
 @Controller('publications')
