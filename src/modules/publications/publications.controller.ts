@@ -1,4 +1,11 @@
-import { Controller, Post, Body, UseGuards, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Get,
+  Body,
+  UseGuards,
+  HttpStatus,
+} from '@nestjs/common';
 import { CreatePublicationBodyDTO } from './dto/create-publication.dto';
 import { PublicationsService } from './publications.service';
 import { AuthGuard } from '../auth/authGuard/auth.guard';
@@ -24,5 +31,11 @@ export class PublicationsController {
       message: 'Post created successfully',
       data: publication,
     };
+  }
+
+  @UseGuards(AuthGuard)
+  @Get()
+  async findAllUsers(@UserRequest() user: User) {
+    return this.publicationsService.findAllPublications(user.id);
   }
 }

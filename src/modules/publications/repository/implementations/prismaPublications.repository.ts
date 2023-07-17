@@ -28,4 +28,8 @@ export class PublicationsPrismaRepository implements PublicationsRepository {
       },
     });
   }
+
+  async getPublicationsByUser(userId: number): Promise<Publication[]> {
+    return await this.prisma.publication.findMany({ where: { userId } });
+  }
 }

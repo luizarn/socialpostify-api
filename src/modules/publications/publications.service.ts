@@ -21,7 +21,7 @@ export class PublicationsService {
     return publication;
   }
 
-  findAll() {
-    return `This action returns all publications`;
+  async findAllPublications(userId: number) {
+    return await this.publicationRepository.getPublicationsByUser(userId);
   }
 }

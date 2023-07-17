@@ -1,8 +1,9 @@
-import { IsDateString, IsNotEmpty, IsString } from 'class-validator';
+import { IsDateString, IsNotEmpty, IsString, IsUrl } from 'class-validator';
 import { parseISO } from 'date-fns';
 
 export class CreatePublicationBodyDTO {
   @IsNotEmpty()
+  @IsUrl()
   image: string;
 
   @IsNotEmpty()
@@ -20,8 +21,4 @@ export class CreatePublicationBodyDTO {
 
   @IsNotEmpty()
   socialMedia: string;
-
-  get parsedDateToPublish(): Date {
-    return parseISO(this.dateToPublish);
-  }
 }
