@@ -21,5 +21,6 @@ import { PrismaUsersRepository } from '../users/repository/implementations/prism
       useClass: PrismaUsersRepository,
     },
   ],
+  exports: [AuthService],
 })
 export class AuthModule {}
