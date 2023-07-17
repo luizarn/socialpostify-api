@@ -1,10 +1,6 @@
 import { IsEmail, IsNotEmpty, IsString, Length } from 'class-validator';
 
-export class CreateUserBodyDTO {
-  @IsNotEmpty()
-  @Length(3, 100)
-  name: string;
-
+export class AuthSigninDTO {
   @IsNotEmpty()
   @IsEmail()
   email: string;
@@ -13,7 +9,4 @@ export class CreateUserBodyDTO {
   @IsNotEmpty()
   @Length(6, 20)
   password: string;
-
-  @IsNotEmpty()
-  avatar: string;
 }
